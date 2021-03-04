@@ -20,9 +20,16 @@ export const Wrapper = styled.div`
 `;
 
 export const Widgets = styled.div`
-  svg {
-    & + svg {
+  button {
+    & + button {
       margin-left: 16px;
     }
+  }
+`;
+
+export const Avatar = styled.div`
+  img {
+    width: 24px;
+    border-radius: 50%;
   }
 `;

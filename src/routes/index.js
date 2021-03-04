@@ -1,21 +1,20 @@
-import { Switch, Route } from 'react-router-dom';
-import { useFirebase } from '../context/useFirebase';
+import { Switch } from 'react-router-dom';
+import Route from './Route';
 
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import Feed from '../pages/Feed';
 import NotFound from '../pages/NotFound';
 
-function Routes() {
-  const { user } = useFirebase();
-
+const Routes = () => {
   return (
     <Switch>
-      <Route path="/" exact component={user ? Feed : Login} />
+      <Route path="/" exact component={Login} />
       <Route path="/account/signup" component={Signup} />
+      <Route path="/feed" component={Feed} isPrivate />
       <Route component={NotFound} />
     </Switch>
   );
-}
+};
 
 export default Routes;

@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { FirebaseProvider } from './context/useFirebase';
+import { AuthProvider } from './context/useAuth';
 
 ReactDOM.render(
   <React.StrictMode>
-    <FirebaseProvider>
+    <AuthProvider>
       <App />
-    </FirebaseProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

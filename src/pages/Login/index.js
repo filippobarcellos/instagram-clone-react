@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useFirebase } from '../../context/useFirebase';
+import { useAuth } from '../../context/useAuth';
 
 import Logo from '../../components/Logo';
 import Button from '../../components/Button';
@@ -11,7 +11,7 @@ import Spinner from '../../components/Spinner';
 import * as S from './styles';
 
 const Login = () => {
-  const { firebase } = useFirebase();
+  const { login } = useAuth();
   const history = useHistory();
 
   const [error, setError] = useState('');
@@ -25,10 +25,10 @@ const Login = () => {
     mode: 'onChange',
   });
 
-  const onSubmit = async ({ email, password }, e) => {
+  const onSubmit = async (data) => {
     try {
-      await firebase.auth().signInWithEmailAndPassword(email, password);
-      history.push('/');
+      await login(data);
+      history.push('/feed');
     } catch (error) {
       setError(error.message);
       reset();

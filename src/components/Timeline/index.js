@@ -38,7 +38,7 @@ const Timeline = () => {
           <S.AddComment>
             <form>
               <Input type="text" placeholder="Add a comment..." noBorder />
-              <Button type="submit" disabled>
+              <Button type="submit" variant="secondary" disabled>
                 Post
               </Button>
             </form>

@@ -1,6 +1,6 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useFirebase } from '../../context/useFirebase';
+import { useAuth } from '../../context/useAuth';
 
 import Logo from '../../components/Logo';
 import Input from '../../components/Input';
@@ -11,7 +11,7 @@ import * as S from './styles';
 import { useState } from 'react';
 
 const Signup = () => {
-  const { firebase } = useFirebase();
+  // const { firebase } = useAuth();
   const history = useHistory();
 
   const [error, setError] = useState('');
@@ -25,24 +25,9 @@ const Signup = () => {
     mode: 'onChange',
   });
 
-  const onSubmit = async ({ username, fullname, email, password }) => {
+  const onSubmit = async (data) => {
     try {
-      const createdUserResult = await firebase
-        .auth()
-        .createUserWithEmailAndPassword(email, password);
-
-      await createdUserResult.user.updateProfile({
-        displayName: username,
-      });
-
-      await firebase.firestore().collection('users').add({
-        userId: createdUserResult.user.uid,
-        username: username.toLowerCase(),
-        fullname,
-        email,
-        following: [],
-        dateCreated: Date.now(),
-      });
+      console.log(data);
 
       history.push('/');
     } catch (error) {

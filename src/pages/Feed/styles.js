@@ -6,6 +6,6 @@ export const Content = styled.main`
 
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 40px;
   margin-top: 40px;
 `;
