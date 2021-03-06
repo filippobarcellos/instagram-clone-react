@@ -3,10 +3,10 @@ import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../context/useAuth';
 
-import Logo from '../../components/Logo';
-import Button from '../../components/Button';
-import Input from '../../components/Input';
-import Spinner from '../../components/Spinner';
+import Logo from '../../shared/Logo';
+import Button from '../../shared/Button';
+import Input from '../../shared/Input';
+import Spinner from '../../shared/Spinner';
 
 import * as S from './styles';
 
@@ -62,7 +62,7 @@ const Login = () => {
               placeholder="Password"
               ref={register({ required: true })}
             />
-            <Button disabled={!isValid} type="submit">
+            <Button disabled={!isValid} type="submit" variant="primary">
               {isSubmitting ? <Spinner /> : 'Log in'}
             </Button>
           </form>

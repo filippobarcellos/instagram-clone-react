@@ -1,6 +1,6 @@
-import Header from '../../components/Header';
-import Timeline from '../../components/Timeline';
-import Sidebar from '../../components/Sidebar';
+import Header from '../../shared/Header';
+import Timeline from '../../shared/Timeline';
+import Sidebar from '../../shared/Sidebar';
 
 import * as S from './styles';
 

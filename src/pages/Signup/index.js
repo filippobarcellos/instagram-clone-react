@@ -1,17 +1,15 @@
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../../context/useAuth';
 
-import Logo from '../../components/Logo';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
-import Spinner from '../../components/Spinner';
+import Logo from '../../shared/Logo';
+import Input from '../../shared/Input';
+import Button from '../../shared/Button';
+import Spinner from '../../shared/Spinner';
 
 import * as S from './styles';
 import { useState } from 'react';
 
 const Signup = () => {
-  // const { firebase } = useAuth();
   const history = useHistory();
 
   const [error, setError] = useState('');

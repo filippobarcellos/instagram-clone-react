@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../context/useAuth';
 import { FiInstagram, FiHome, FiLogOut } from 'react-icons/fi';
 
@@ -9,7 +10,9 @@ const Header = () => {
   return (
     <S.Header>
       <S.Wrapper>
-        <FiInstagram size={26} />
+        <Link to="/feed">
+          <FiInstagram size={26} />
+        </Link>
 
         <S.Widgets>
           <button>
@@ -20,14 +23,16 @@ const Header = () => {
           </button>
           <button>
             <S.Avatar>
-              <img
-                src={
-                  user.avatar
-                    ? `http://localhost:3333/files${user.avatar}`
-                    : `https://eu.ui-avatars.com/api/?name=${user.username}`
-                }
-                alt={user.username}
-              />
+              <Link to={`/${user.username}`}>
+                <img
+                  src={
+                    user.image
+                      ? `http://localhost:3333/files/${user.image}`
+                      : `https://eu.ui-avatars.com/api/?name=${user.username}`
+                  }
+                  alt={user.username}
+                />
+              </Link>
             </S.Avatar>
           </button>
         </S.Widgets>

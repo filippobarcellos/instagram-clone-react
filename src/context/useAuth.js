@@ -11,6 +11,8 @@ const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('@instagram:token');
 
     if (user && token) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
+
       return {
         user: JSON.parse(user),
         token,
@@ -26,6 +28,8 @@ const AuthProvider = ({ children }) => {
       password,
     });
     const { user, token } = response.data;
+
+    api.defaults.headers.authorization = `Bearer ${token}`;
 
     localStorage.setItem('@instagram:user', JSON.stringify(user));
     localStorage.setItem('@instagram:token', token);

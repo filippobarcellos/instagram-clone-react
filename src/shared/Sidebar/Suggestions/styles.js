@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 30px;
+  height: 156px;
 
   > strong {
     color: var(--textGray);
+    margin-bottom: 40px;
   }
 `;
 
@@ -15,6 +17,11 @@ export const List = styled.ul`
   li {
     display: flex;
     align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+    }
 
     & + li {
       margin-top: 12px;
