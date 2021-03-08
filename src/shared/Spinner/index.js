@@ -1,5 +1,3 @@
-import { Switch } from 'react-router-dom';
-
 import * as S from './styles';
 
 const Spinner = () => {

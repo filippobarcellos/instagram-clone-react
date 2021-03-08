@@ -10,7 +10,8 @@ export const Header = styled.header`
 `;
 
 export const Wrapper = styled.div`
-  width: 975px;
+  width: 90%;
+  max-width: 975px;
   height: 100%;
   margin: 0 auto;
 

@@ -29,6 +29,10 @@ export default createGlobalStyle`
     outline: none;
   }
 
+  svg {
+    cursor: pointer;
+  }
+
   a {
     text-decoration: none;
     color: inherit;

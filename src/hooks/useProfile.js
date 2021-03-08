@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 import api from '../services/api';
 
 const getProfile = async (username) => {
-  const { data } = await api.get(`users/${username}`);
+  const { data } = await api.get(`profiles/${username}`);
   return data;
 };
 

@@ -3,7 +3,7 @@ import * as S from './styles';
 
 const Input = forwardRef((props, ref) => {
   return (
-    <S.Container noBorder={props.noBorder}>
+    <S.Container noborder={props.noborder}>
       <input {...props} ref={ref} />
     </S.Container>
   );

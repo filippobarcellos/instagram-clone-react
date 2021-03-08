@@ -8,7 +8,7 @@ export const Container = styled.div`
   align-items: center;
 
   ${(props) =>
-    props.noBorder &&
+    props.noborder &&
     css`
       border: 0;
     `}

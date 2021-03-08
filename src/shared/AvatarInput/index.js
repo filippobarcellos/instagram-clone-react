@@ -21,6 +21,7 @@ const AvatarInput = ({ profile }) => {
 
   return (
     <S.Container>
+      {console.log(preview)}
       <label htmlFor="avatar">
         <img
           src={
