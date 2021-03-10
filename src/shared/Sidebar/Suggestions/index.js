@@ -20,30 +20,29 @@ const Suggestions = () => {
       {status === 'error' && <span>Something wrong happenned.</span>}
 
       <S.List>
-        {data && data.length === 0 && <p>There are no more users to follow.</p>}
-        {data &&
-          data.map((user) => (
-            <li key={user.id}>
-              <Link to={`/${user.username}`}>
-                <img
-                  src={
-                    user.avatar
-                      ? `http://localhost:3333/files${user.avatar}`
-                      : `https://eu.ui-avatars.com/api/?name=${user.username}`
-                  }
-                  alt={user.username}
-                />
-                <strong>{user.username.toLowerCase()}</strong>
-              </Link>
-              <Button
-                type="button"
-                variant="secondary"
-                onClick={() => followUser(user)}
-              >
-                Follow
-              </Button>
-            </li>
-          ))}
+        {data?.length === 0 && <p>There are no more users to follow.</p>}
+        {data?.map((user) => (
+          <li key={user.id}>
+            <Link to={`/${user.username}`}>
+              <img
+                src={
+                  user.avatar
+                    ? `http://localhost:3333/files${user.avatar}`
+                    : `https://eu.ui-avatars.com/api/?name=${user.username}`
+                }
+                alt={user.username}
+              />
+              <strong>{user.username.toLowerCase()}</strong>
+            </Link>
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={() => followUser(user)}
+            >
+              Follow
+            </Button>
+          </li>
+        ))}
       </S.List>
     </S.Container>
   );

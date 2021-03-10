@@ -22,7 +22,7 @@ const Profile = () => {
           <>
             <Info profile={data} userLogged={userLogged} />
 
-            <Photos posts={data.posts} />
+            {/* <Photos posts={data.posts} /> */}
           </>
         )}
       </S.Container>

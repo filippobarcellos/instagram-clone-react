@@ -13,7 +13,12 @@ export const PhotosList = styled.div`
 
 export const Photo = styled.div`
   min-height: 159px;
-  background: red;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+
   img {
     width: 100%;
     height: 100%;
@@ -22,5 +27,39 @@ export const Photo = styled.div`
 
   @media (min-width: 900px) {
     min-height: 309px;
+  }
+
+  > a {
+    position: absolute;
+    color: #fff;
+    display: none;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+
+    div {
+      display: flex;
+      align-items: center;
+      margin: 0 auto;
+
+      span {
+        display: flex;
+        align-items: center;
+
+        p {
+          margin-left: 8px;
+        }
+
+        & + span {
+          margin-left: 30px;
+        }
+      }
+    }
+  }
+
+  &:hover {
+    > a {
+      display: flex;
+    }
   }
 `;

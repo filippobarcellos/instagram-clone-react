@@ -52,20 +52,3 @@ export const Hour = styled.div`
   padding: 8px 16px;
   font-size: 14px;
 `;
-
-export const Comments = styled.div``;
-
-export const AddComment = styled.div`
-  padding: 16px;
-  border-top: 1px solid var(--gray);
-
-  form {
-    display: flex;
-    align-items: center;
-    width: 100%;
-
-    div {
-      flex: 1;
-    }
-  }
-`;

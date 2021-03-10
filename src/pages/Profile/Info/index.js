@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import AvatarInput from '../../../shared/AvatarInput';
 import FollowButton from '../../../shared/FollowButton';
 import UnfollowButton from '../../../shared/UnfollowButton';
 
 import * as S from './styles';
+import Button from '../../../shared/Button';
 
 const Info = ({ profile, userLogged }) => {
   const [follow, setFollow] = useState(false);
@@ -29,7 +31,11 @@ const Info = ({ profile, userLogged }) => {
             ) : (
               <UnfollowButton user={profile} />
             )
-          ) : null}
+          ) : (
+            <Button type="button" style={{ border: '1px solid #DBDBDB' }}>
+              <Link to="/account/edit">Edit Profile</Link>
+            </Button>
+          )}
         </S.ProfileInfoHeader>
 
         <S.ProfileInfoStats>

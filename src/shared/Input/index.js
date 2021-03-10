@@ -1,12 +1,18 @@
 import { forwardRef } from 'react';
+
 import * as S from './styles';
 
 const Input = forwardRef((props, ref) => {
-  return (
-    <S.Container noborder={props.noborder}>
-      <input {...props} ref={ref} />
-    </S.Container>
-  );
+  if (props.label) {
+    return (
+      <S.Label>
+        <div>{props.label}</div>
+        <input {...props} ref={ref} />
+      </S.Label>
+    );
+  }
+
+  return <input {...props} ref={ref} />;
 });
 
 export default Input;

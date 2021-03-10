@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../../../../context/useAuth';
-import useLikePost from '../../../../hooks/useLikePost';
-import useUnlikePost from '../../../../hooks/useUnlikePost';
+import { useAuth } from '../../../context/useAuth';
+import useLikePost from '../../../hooks/useLikePost';
+import useUnlikePost from '../../../hooks/useUnlikePost';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 
 const LikeButton = ({ id, likes }) => {

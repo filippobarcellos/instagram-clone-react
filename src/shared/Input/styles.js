@@ -1,26 +1,23 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-export const Container = styled.div`
-  background: var(--background);
-  border: 1px solid var(--gray);
-  border-radius: 4px;
+export const Label = styled.label`
+  width: 100%;
   display: flex;
   align-items: center;
 
-  ${(props) =>
-    props.noborder &&
-    css`
-      border: 0;
-    `}
-
-  & + div {
+  & + label {
     margin-top: 8px;
   }
 
-  input {
+  div {
     flex: 1;
-    border: none;
-    background: none;
+  }
+
+  input {
+    flex: 3;
     padding: 12px;
+    background: var(--background);
+    border: 1px solid var(--gray);
+    border-radius: 4px;
   }
 `;
