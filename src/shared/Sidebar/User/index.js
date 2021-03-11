@@ -10,7 +10,7 @@ const User = () => {
       <img
         src={
           user.image
-            ? `http://localhost:3333/files/${user.image}`
+            ? `https://instagram-clone-prisma-api.herokuapp.com/files/${user.image}`
             : `https://eu.ui-avatars.com/api/?name=${user.username}`
         }
         alt={user.username}
