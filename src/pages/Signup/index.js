@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import useCreateUser from '../../hooks/useCreateUser';
 
 import Logo from '../../shared/Logo';
 import Input from '../../shared/Input';
@@ -7,10 +10,10 @@ import Button from '../../shared/Button';
 import Spinner from '../../shared/Spinner';
 
 import * as S from './styles';
-import { useState } from 'react';
 
 const Signup = () => {
   const history = useHistory();
+  const { mutateAsync } = useCreateUser();
 
   const [error, setError] = useState('');
 
@@ -25,7 +28,11 @@ const Signup = () => {
 
   const onSubmit = async (data) => {
     try {
-      console.log(data);
+      await mutateAsync(data);
+      toast.success('User has been created. You can now login.', {
+        position: 'top-center',
+        autoClose: 3000,
+      });
 
       history.push('/');
     } catch (error) {
@@ -41,25 +48,25 @@ const Signup = () => {
           <S.Logo>
             <Logo />
           </S.Logo>
+
           <form onSubmit={handleSubmit(onSubmit)}>
             {error && <S.Error>{error}</S.Error>}
 
             <Input
-              aria-label="Enter your username"
               name="username"
               type="text"
               placeholder="Username"
               ref={register({ required: true })}
             />
+
             <Input
-              aria-label="Enter your full name"
-              name="fullname"
+              name="fullName"
               type="text"
               placeholder="Full Name"
               ref={register({ required: true })}
             />
+
             <Input
-              aria-label="Enter your email"
               name="email"
               type="text"
               placeholder="Email"
@@ -70,13 +77,13 @@ const Signup = () => {
             />
 
             <Input
-              aria-label="Enter your password"
               name="password"
               type="password"
               placeholder="Password"
               ref={register({ required: true })}
             />
-            <Button disabled={!isValid} type="submit">
+
+            <Button disabled={!isValid} type="submit" variant="primary">
               {isSubmitting ? <Spinner /> : 'Sign up'}
             </Button>
           </form>

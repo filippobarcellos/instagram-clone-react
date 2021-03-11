@@ -14,19 +14,16 @@ const AvatarInput = ({ profile }) => {
     const data = new FormData();
     data.append('image', e.target.files[0]);
 
-    api
-      .patch('users/avatar', data)
-      .then((response) => console.log(response.data));
+    api.patch('users/avatar', data);
   };
 
   return (
     <S.Container>
-      {console.log(preview)}
       <label htmlFor="avatar">
         <img
           src={
             profile.image
-              ? `http://localhost:3333/files/${profile.image}`
+              ? `https://instagram-clone-prisma-api.herokuapp.com/files/${profile.image}`
               : preview
               ? preview
               : `https://eu.ui-avatars.com/api/?name=${profile.username}`

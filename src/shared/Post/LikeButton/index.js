@@ -4,9 +4,10 @@ import useLikePost from '../../../hooks/useLikePost';
 import useUnlikePost from '../../../hooks/useUnlikePost';
 import { BsHeart, BsHeartFill } from 'react-icons/bs';
 
-const LikeButton = ({ id, likes }) => {
+const LikeButton = ({ id, likes, likesCount }) => {
   const { user } = useAuth();
   const [isLiked, setIsLiked] = useState(false);
+  const [likesQtd, setLikesQtd] = useState(likesCount);
 
   const { mutate: likePost } = useLikePost();
   const { mutate: unLikePost } = useUnlikePost();
@@ -15,9 +16,11 @@ const LikeButton = ({ id, likes }) => {
     if (isLiked) {
       unLikePost(id);
       setIsLiked(!isLiked);
+      setLikesQtd((state) => state - 1);
     } else {
       likePost(id);
       setIsLiked(!isLiked);
+      setLikesQtd((state) => state + 1);
     }
   };
 
@@ -33,6 +36,7 @@ const LikeButton = ({ id, likes }) => {
       ) : (
         <BsHeart size={22} onClick={() => toggleLike(id)} />
       )}
+      <strong>{likesQtd} likes</strong>
     </>
   );
 };

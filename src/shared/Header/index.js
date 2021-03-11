@@ -16,7 +16,9 @@ const Header = () => {
 
         <S.Widgets>
           <button>
-            <FiHome size={22} />
+            <Link to="/feed">
+              <FiHome size={22} />
+            </Link>
           </button>
           <button onClick={() => logout()}>
             <FiLogOut size={22} />

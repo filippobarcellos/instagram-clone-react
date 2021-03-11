@@ -12,7 +12,7 @@ export const PhotosList = styled.div`
 `;
 
 export const Photo = styled.div`
-  min-height: 159px;
+  height: 193px;
   position: relative;
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@ export const Photo = styled.div`
   }
 
   @media (min-width: 900px) {
-    min-height: 309px;
+    height: 293px;
   }
 
   > a {

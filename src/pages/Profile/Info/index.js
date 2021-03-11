@@ -32,15 +32,24 @@ const Info = ({ profile, userLogged }) => {
               <UnfollowButton user={profile} />
             )
           ) : (
-            <Button type="button" style={{ border: '1px solid #DBDBDB' }}>
-              <Link to="/account/edit">Edit Profile</Link>
-            </Button>
+            <>
+              <Button
+                type="button"
+                style={{ border: '1px solid #DBDBDB', marginRight: '16px' }}
+              >
+                <Link to="/account/edit">Edit Profile</Link>
+              </Button>
+
+              <Button type="button" variant="primary">
+                <Link to="/account/create">Share a Photo</Link>
+              </Button>
+            </>
           )}
         </S.ProfileInfoHeader>
 
         <S.ProfileInfoStats>
           <div>
-            <strong>2</strong>
+            <strong>{profile.posts.length}</strong>
             <span>posts</span>
           </div>
           <div>

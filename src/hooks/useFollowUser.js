@@ -6,6 +6,7 @@ export default function useFollowUser() {
 
   return useMutation((user) => api.put(`users/${user.id}/follow`), {
     onSuccess: () => {
+      queryClient.invalidateQueries('feed');
       queryClient.invalidateQueries('profile');
       queryClient.invalidateQueries('profiles');
     },

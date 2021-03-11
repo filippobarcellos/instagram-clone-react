@@ -10,6 +10,7 @@ export default function useAddComment() {
     {
       onSuccess: () => {
         queryClient.invalidateQueries('feed');
+        queryClient.invalidateQueries('post');
       },
     }
   );

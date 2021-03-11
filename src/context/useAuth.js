@@ -43,8 +43,21 @@ const AuthProvider = ({ children }) => {
     localStorage.removeItem('@instagram:token');
   };
 
+  const updateUser = async (data) => {
+    const response = await api.put('users', data);
+
+    localStorage.setItem('@instagram:user', JSON.stringify(response.data));
+
+    setData({
+      token: data.token,
+      user: response.data,
+    });
+  };
+
   return (
-    <AuthContext.Provider value={{ login, logout, user: data.user }}>
+    <AuthContext.Provider
+      value={{ login, logout, updateUser, user: data.user }}
+    >
       {children}
     </AuthContext.Provider>
   );

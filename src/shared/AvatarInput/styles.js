@@ -6,6 +6,7 @@ export const Container = styled.div`
 
     img {
       border-radius: 50%;
+      max-width: 120px;
     }
 
     input {

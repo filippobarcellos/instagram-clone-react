@@ -5,23 +5,23 @@ import * as S from './styles';
 const Photos = ({ posts }) => {
   return (
     <S.PhotosList>
+      {posts.length === 0 && <span>Share you first photo.</span>}
       {posts.map((post) => (
         <S.Photo key={post.id}>
           <img
-            src={`http://localhost:3333/files/${post.image}`}
+            src={`https://instagram-clone-prisma-api.herokuapp.com/files/${post.image}`}
             alt={post.description}
           />
-
-          <Link to="/test">
+          <Link to={`/p/${post.id}`}>
             <div>
               <span>
                 <BsHeartFill size={22} />
-                <p>40</p>
+                <p>{post.comments.length}</p>
               </span>
 
               <span>
                 <BsHeartFill size={22} />
-                <p>40</p>
+                <p>{post.likesCount}</p>
               </span>
             </div>
           </Link>

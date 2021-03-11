@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import { Instagram } from 'react-content-loader';
 import { useAuth } from '../../context/useAuth';
 import useProfile from '../../hooks/useProfile';
 
@@ -17,12 +18,11 @@ const Profile = () => {
     <DefaultLayout>
       <S.Container>
         {status === 'loading' ? (
-          <span>Loading...</span>
+          <Instagram />
         ) : (
           <>
             <Info profile={data} userLogged={userLogged} />
-
-            {/* <Photos posts={data.posts} /> */}
+            <Photos posts={data.posts} />
           </>
         )}
       </S.Container>

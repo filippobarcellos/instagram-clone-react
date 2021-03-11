@@ -9,7 +9,7 @@ export const Comment = styled.div`
     margin-top: 8px;
   }
 
-  span {
+  > span {
     margin-left: 8px;
   }
 `;

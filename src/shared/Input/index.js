@@ -12,7 +12,7 @@ const Input = forwardRef((props, ref) => {
     );
   }
 
-  return <input {...props} ref={ref} />;
+  return <S.Input {...props} ref={ref} />;
 });
 
 export default Input;

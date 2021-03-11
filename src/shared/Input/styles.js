@@ -21,3 +21,15 @@ export const Label = styled.label`
     border-radius: 4px;
   }
 `;
+
+export const Input = styled.input`
+  width: 100%;
+  background: var(--background);
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  padding: 12px;
+
+  & + input {
+    margin-top: 8px;
+  }
+`;
