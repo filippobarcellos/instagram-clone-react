@@ -26,8 +26,8 @@ const Suggestions = () => {
             <Link to={`/${user.username}`}>
               <img
                 src={
-                  user.avatar
-                    ? `http://localhost:3333/files${user.avatar}`
+                  user.image
+                    ? `user.image`
                     : `https://eu.ui-avatars.com/api/?name=${user.username}`
                 }
                 alt={user.username}

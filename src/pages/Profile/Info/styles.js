@@ -7,10 +7,10 @@ export const Profile = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-gap: 40px;
+  align-items: center;
 
   img {
-    width: 80%;
-    max-width: 150px;
+    width: 100%;
     border-radius: 50%;
   }
 
@@ -37,7 +37,12 @@ export const ProfileInfoHeader = styled.header`
   }
 
   button {
-    padding: 9px;
+    padding: 8px;
+    font-size: 12px;
+
+    @media (min-width: 730px) {
+      font-size: 16px;
+    }
   }
 `;
 

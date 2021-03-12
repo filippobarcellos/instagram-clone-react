@@ -4,11 +4,15 @@ import styled from 'styled-components';
 export const PhotosList = styled.div`
   max-width: 967px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(159px, 1fr));
+  grid-template-columns: repeat(2, minmax(159px, 1fr));
   grid-gap: 20px;
   margin-top: 40px;
   padding-top: 40px;
   border-top: 1px solid var(--gray);
+
+  @media (min-width: 730px) {
+    grid-template-columns: repeat(3, minmax(159px, 1fr));
+  }
 `;
 
 export const Photo = styled.div`

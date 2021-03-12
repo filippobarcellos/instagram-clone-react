@@ -23,7 +23,7 @@ const AvatarInput = ({ profile }) => {
         <img
           src={
             profile.image
-              ? `https://instagram-clone-prisma-api.herokuapp.com/files/${profile.image}`
+              ? profile.image
               : preview
               ? preview
               : `https://eu.ui-avatars.com/api/?name=${profile.username}`

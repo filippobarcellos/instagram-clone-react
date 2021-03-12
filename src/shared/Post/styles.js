@@ -1,10 +1,5 @@
 import styled, { css } from 'styled-components';
 
-// export const Hour = styled.div`
-//   padding: 8px 16px;
-//   font-size: 14px;
-// `;
-
 export const Container = styled.div``;
 
 export const Article = styled.div`
@@ -33,16 +28,18 @@ export const Article = styled.div`
     }
   }
 
-  ${(props) =>
-    props.fullStyle &&
-    css`
-      margin-top: 80px;
-      flex-direction: row;
+  @media (min-width: 900px) {
+    ${(props) =>
+      props.fullStyle &&
+      css`
+        margin-top: 80px;
+        flex-direction: row;
 
-      header {
-        display: none;
-      }
-    `}
+        header {
+          display: none;
+        }
+      `}
+  }
 `;
 
 export const ArticlePhoto = styled.div`
@@ -76,6 +73,15 @@ export const ArticleDescription = styled.div`
 
   strong {
     margin-right: 8px;
+  }
+`;
+
+export const Hour = styled.div`
+  padding: 8px 16px;
+
+  span {
+    font-size: 12px;
+    color: var(--text);
   }
 `;
 

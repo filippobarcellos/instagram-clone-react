@@ -14,7 +14,7 @@ const Post = ({ data, fullStyle, limitComments }) => {
           <img
             src={
               data.user.image
-                ? `https://instagram-clone-prisma-api.herokuapp.com/files/${data.user.image}`
+                ? data.user.image
                 : `https://eu.ui-avatars.com/api/?name=${data.user.username}`
             }
             alt={data.user.username}
@@ -25,10 +25,7 @@ const Post = ({ data, fullStyle, limitComments }) => {
 
       <S.ArticlePhoto>
         <Link to={`/p/${data.id}`}>
-          <img
-            src={`https://instagram-clone-prisma-api.herokuapp.com/files/${data.image}`}
-            alt={data.description}
-          />
+          <img src={data.image} alt={data.description} />
         </Link>
       </S.ArticlePhoto>
 
@@ -45,6 +42,10 @@ const Post = ({ data, fullStyle, limitComments }) => {
           <strong>{data.user.username}</strong>
           <span>{data.description}</span>
         </S.ArticleDescription>
+
+        <S.Hour>
+          <span>4 hours ago</span>
+        </S.Hour>
 
         <S.ArticleComments>
           <Comments comments={data.comments} limit={limitComments} />
