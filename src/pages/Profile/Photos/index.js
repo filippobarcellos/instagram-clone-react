@@ -8,10 +8,7 @@ const Photos = ({ posts }) => {
       {posts.length === 0 && <span>Share you first photo.</span>}
       {posts.map((post) => (
         <S.Photo key={post.id}>
-          <img
-            src={`https://instagram-clone-prisma-api.herokuapp.com/files/${post.image}`}
-            alt={post.description}
-          />
+          <img src={post.image} alt={post.description} />
           <Link to={`/p/${post.id}`}>
             <div>
               <span>
