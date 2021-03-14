@@ -5,7 +5,7 @@ import api from '../../services/api';
 import * as S from './styles';
 
 const AvatarInput = ({ profile }) => {
-  const { user: userLogged } = useAuth();
+  const { user: userLogged, updateUserStorage } = useAuth();
   const [preview, setPreview] = useState();
 
   const handleAvatarChange = (e) => {
@@ -14,7 +14,9 @@ const AvatarInput = ({ profile }) => {
     const data = new FormData();
     data.append('image', e.target.files[0]);
 
-    api.patch('users/avatar', data);
+    api
+      .patch('users/avatar', data)
+      .then((response) => updateUserStorage(response.data));
   };
 
   return (
@@ -22,11 +24,11 @@ const AvatarInput = ({ profile }) => {
       <label htmlFor="avatar">
         <img
           src={
-            profile.image
-              ? profile.image
-              : preview
+            !profile.image
+              ? `https://eu.ui-avatars.com/api/?name=${profile.username}`
+              : preview !== undefined
               ? preview
-              : `https://eu.ui-avatars.com/api/?name=${profile.username}`
+              : profile.image
           }
           alt={profile.username}
         />

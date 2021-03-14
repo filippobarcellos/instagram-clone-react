@@ -23,6 +23,8 @@ export default createGlobalStyle`
     outline: none;
     background: none;
     border: none;
+    color: inherit;
+    font-size: inherit;
   }
 
   input {

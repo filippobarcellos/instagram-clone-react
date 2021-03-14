@@ -54,9 +54,18 @@ const AuthProvider = ({ children }) => {
     });
   };
 
+  const updateUserStorage = (user) => {
+    localStorage.setItem('@instagram:user', JSON.stringify(user));
+
+    setData({
+      token: data.token,
+      user: user,
+    });
+  };
+
   return (
     <AuthContext.Provider
-      value={{ login, logout, updateUser, user: data.user }}
+      value={{ login, logout, updateUser, updateUserStorage, user: data.user }}
     >
       {children}
     </AuthContext.Provider>

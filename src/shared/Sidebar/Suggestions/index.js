@@ -27,7 +27,7 @@ const Suggestions = () => {
               <img
                 src={
                   user.image
-                    ? `user.image`
+                    ? user.image
                     : `https://eu.ui-avatars.com/api/?name=${user.username}`
                 }
                 alt={user.username}

@@ -43,10 +43,6 @@ const Post = ({ data, fullStyle, limitComments }) => {
           <span>{data.description}</span>
         </S.ArticleDescription>
 
-        <S.Hour>
-          <span>4 hours ago</span>
-        </S.Hour>
-
         <S.ArticleComments>
           <Comments comments={data.comments} limit={limitComments} />
         </S.ArticleComments>

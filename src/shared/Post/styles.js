@@ -76,15 +76,6 @@ export const ArticleDescription = styled.div`
   }
 `;
 
-export const Hour = styled.div`
-  padding: 8px 16px;
-
-  span {
-    font-size: 12px;
-    color: var(--text);
-  }
-`;
-
 export const ArticleComments = styled.div`
   flex: 1;
 `;

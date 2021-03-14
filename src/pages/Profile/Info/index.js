@@ -1,68 +1,70 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
 
+import Buttons from './Buttons';
 import AvatarInput from '../../../shared/AvatarInput';
-import FollowButton from '../../../shared/FollowButton';
-import UnfollowButton from '../../../shared/UnfollowButton';
+import ModalFollowing from '../../../shared/ModalFollowing';
+import ModalFollowers from '../../../shared/ModalFollowers';
 
 import * as S from './styles';
-import Button from '../../../shared/Button';
 
 const Info = ({ profile, userLogged }) => {
+  const followingModal = useRef(null);
+  const followersModal = useRef(null);
+
   const [follow, setFollow] = useState(false);
-  const [hideFollowBtn] = useState(() => {
-    return profile.username === userLogged.username;
-  });
 
   useEffect(() => {
     const followersArr = profile.followedBy.map((u) => u.id);
     setFollow(followersArr.includes(userLogged.id));
   }, [profile, userLogged]);
 
+  const handleClickFollowing = () => {
+    if (profile.following.length > 0) {
+      followingModal.current.open();
+    }
+  };
+
+  const handleClickFollowers = () => {
+    if (profile.followedBy.length > 0) {
+      followersModal.current.open();
+    }
+  };
+
   return (
-    <S.Profile>
-      <AvatarInput profile={profile} />
-      <S.ProfileInfo>
-        <S.ProfileInfoHeader>
-          <h2>{profile.username}</h2>
-          {!hideFollowBtn ? (
-            !follow ? (
-              <FollowButton user={profile} />
-            ) : (
-              <UnfollowButton user={profile} />
-            )
-          ) : (
-            <>
-              <Button
-                type="button"
-                style={{ border: '1px solid #DBDBDB', marginRight: '16px' }}
-              >
-                <Link to="/account/edit">Edit Profile</Link>
-              </Button>
+    <>
+      <S.Profile>
+        <AvatarInput profile={profile} />
+        <S.ProfileInfo>
+          <S.ProfileInfoHeader>
+            <h2>{profile.username}</h2>
 
-              <Button type="button" variant="primary">
-                <Link to="/account/create">Share a Photo</Link>
-              </Button>
-            </>
-          )}
-        </S.ProfileInfoHeader>
+            <Buttons alreadyFollowing={follow} profile={profile} />
+          </S.ProfileInfoHeader>
 
-        <S.ProfileInfoStats>
-          <div>
-            <strong>{profile.posts.length}</strong>
-            <span>posts</span>
-          </div>
-          <div>
-            <strong>{profile.followedBy.length}</strong>
-            <span>followers</span>
-          </div>
-          <div>
-            <strong>{profile.following.length}</strong>
-            <span>following</span>
-          </div>
-        </S.ProfileInfoStats>
-      </S.ProfileInfo>
-    </S.Profile>
+          <S.ProfileInfoStats>
+            <div>
+              <strong>{profile.posts.length}</strong>
+              <span>posts</span>
+            </div>
+            <div>
+              <button onClick={() => handleClickFollowers()}>
+                <strong>{profile.followedBy.length}</strong>
+                <span>followers</span>
+              </button>
+            </div>
+            <div>
+              <button onClick={() => handleClickFollowing()}>
+                <strong>{profile.following.length}</strong>
+                <span>following</span>
+              </button>
+            </div>
+          </S.ProfileInfoStats>
+        </S.ProfileInfo>
+      </S.Profile>
+
+      <ModalFollowing ref={followingModal} profiles={profile.following} />
+      <ModalFollowers ref={followersModal} profiles={profile.followedBy} />
+    </>
   );
 };
 
