@@ -31,6 +31,7 @@ export const Widgets = styled.div`
 export const Avatar = styled.div`
   img {
     width: 24px;
+    height: 24px;
     border-radius: 50%;
   }
 `;
