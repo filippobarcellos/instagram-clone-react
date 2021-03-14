@@ -1,8 +1,6 @@
 # Instagram Clone Frontend
 
-<figure>
-<iframe src="https://www.youtube.com/watch?v=T9CDS2W9VNs" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
+![](https://www.youtube.com/embed/T9CDS2W9VNs)
 
 Instagram clone frontend built with React and React Query
 
