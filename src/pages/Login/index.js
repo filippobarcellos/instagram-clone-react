@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../context/useAuth';
 
@@ -13,8 +13,6 @@ import * as S from './styles';
 const Login = () => {
   const { login } = useAuth();
   const history = useHistory();
-
-  const [error, setError] = useState('');
 
   const {
     register,
@@ -30,7 +28,10 @@ const Login = () => {
       await login(data);
       history.push('/feed');
     } catch (error) {
-      setError(error.message);
+      toast.error('Something went wrong. Please try again.', {
+        position: 'top-center',
+        autoClose: 3000,
+      });
       reset();
     }
   };
