@@ -44,8 +44,6 @@ const Login = () => {
             <Logo />
           </S.Logo>
           <form onSubmit={handleSubmit(onSubmit)}>
-            {error && <S.Error>{error}</S.Error>}
-
             <Input
               aria-label="Enter your email"
               type="text"
