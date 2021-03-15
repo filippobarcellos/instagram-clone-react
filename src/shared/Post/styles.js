@@ -23,6 +23,7 @@ export const Article = styled.div`
 
     img {
       width: 32px;
+      height: 32px;
       border-radius: 50%;
       margin-right: 16px;
     }
