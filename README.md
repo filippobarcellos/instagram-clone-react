@@ -4,6 +4,8 @@ Instagram clone frontend built with React and React Query
 
 [Check out the live site](https://insta-clone-mern.netlify.app/)
 
+<img src="https://github.com/filippobarcellos/instagram-clone-react/blob/main/app.gif" width="800" height="600"/>
+
 If you are looking for the backend repo, [click here](https://github.com/filippobarcellos/instagram-clone-api).
 
 ## Features
