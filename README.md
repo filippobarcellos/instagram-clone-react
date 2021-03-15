@@ -8,6 +8,12 @@ Instagram clone frontend built with React and React Query
 
 If you are looking for the backend repo, [click here](https://github.com/filippobarcellos/instagram-clone-api).
 
+## Goals
+
+* improve my ability to build full stack apps.
+* get comfortable with React Query to fetch query and send mutation to db
+* start writing tests with Jest, React Testing Library.
+
 ## Features
 
 - Login / Signup
